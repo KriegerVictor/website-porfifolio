@@ -1,0 +1,522 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Josefin+Slab:ital,wght@1,200&family=Mulish:ital,wght@1,200&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+
+*{                                                                                   /* caracteristicas de formatação da pagina*/
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.linemenu{                                                                            /* botão para sidebar */
+    background-color: rgba(255, 0, 0, 0);
+    width: 2rem;
+    height: 3rem;
+    position: fixed;
+    z-index: 100;
+    right: 2rem;
+    top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+
+}
+
+.show-menu .linemenu{
+    right: 18rem;
+
+}
+
+.line{
+    width: 100;
+    height: .1rem;
+    background-color: #0dc70d;
+    box-shadow: 0.1rem 0.1rem 1px #333333;
+    transition: transform 1s
+
+}
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(.6rem, .45rem);
+
+}
+
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+     
+}
+
+.show-menu #line3{
+    transform: rotate(-45deg) translate(.46rem, -.45rem);
+
+}
+
+.linemenu span{                                                                   /* notificação de fechar sidebar */
+    position: absolute;
+    left: 3rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "baloo da 2";
+    background-color: #006900;
+    color: #ffffff;
+    opacity: 0;
+
+}
+
+.linemenu span::before{
+    content: "";
+    position:absolute;
+    border-right: .5rem solid #006900;
+    border-top: .5rem solid transparent;
+    border-left: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1.0rem;
+
+}
+
+.show-menu .linemenu:hover span{
+    opacity: 1;
+
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.img-wrapper{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+} 
+
+.img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom 7s;  
+
+}
+
+@keyframes zoom {                                                          /* animação do bg */
+    0%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+.banner{                                                                  /* caix de texto da pag principal */
+    position: absolute;                                                  
+    left: 9%;
+    top: 35%;
+    
+}
+
+.banner h1{                                                               /* caixa de texto 1 'nome' */
+    color: #006900; 
+    font-size: 3.5rem;
+    font-family: "Baloo Da 2", serif;
+    font-weight: 200;
+    text-shadow: .1rem .2rem 2px rgba(0, 0, 0, 0.425);
+    line-height: 4rem;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: movebanner 2s .2s forwards;
+
+}
+
+.banner p{                                                               /* caixa de texto 2 'curso' */
+    font-family: "Josefin+Slab", serif;
+    color: rgb(28, 114, 47);
+    font-size: 2rem;
+    text-shadow: .1rem .1rem 2px rgba(8, 8, 8, 0.425);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: movebanner 2s .4s forwards;
+    font-style: italic;
+
+}
+
+.banner button{                                                          /* botoes social media */
+    
+    z-index: 100;
+    right: 4rem;
+    top: -8.8rem;
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    border-spacing: 1rem;
+    border: none;
+    border-radius: 5px;
+    
+    cursor: pointer;
+    opacity: 0;
+    animation: movebanner 2s .6s forwards;
+    border-radius: 50%;
+
+    padding: 4px;
+    background-color: transparent;
+   
+  }
+
+  .banner button i{                                                     /* icones dos botoes social media */
+    
+    color: #ffffff;
+    height: 1.8rem;
+    width: 1.8rem;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 1s;
+    
+}
+
+.banner button i:hover{
+    color: #0dc70d; 
+
+}
+
+@keyframes movebanner {                                                                      /* animação do texto principal */
+    0%{
+        transform: translateY(10rem) rotateY(-30deg);
+        
+    }
+    100%{
+        transform: translateY(0) rotateY(0);
+        opacity: 1;
+    }
+    
+}
+
+.sidebar{                                                                                    /* caracteristicas da sidebar*/
+    width: 24rem;
+    height: 35vh;
+    background-color: #f7f7f7;
+    position: fixed;
+    top: 1rem;
+    right: -24rem;
+    border-radius: 15px;
+    transition: all 1s;
+    z-index: 99;
+    
+}
+
+.show-menu .sidebar{
+    right: 0;
+
+}
+
+.menu{
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-40%, -40%);
+
+}
+
+.menu-item{                                                                                  /* itens  dentro da sidebar */
+    
+    margin-bottom: .5rem;
+
+}
+
+.menu-link{
+    font-family: "Baloo Da 2", serif;
+    font-size: 1.5rem;
+    color: #006900;
+    transition: color 1s;
+
+}
+
+.menu-link:hover{
+    color: #0dc70d;
+
+}
+
+.profissional{                                                                              /* sessão da trajetória profissional   */
+    display: grid;
+    grid-template-columns: (17,1fr);
+    grid-template-rows: repeat(6,8.5rem);
+
+}
+
+.profissional:nth-child(1){
+    grid-column: 1/8;
+    grid-row: 1/1;
+    text-align: center ;
+   
+    margin-left: 2rem;
+    margin-right: .3rem;
+
+}
+
+.profissional:nth-child(2){
+    grid-column: 9/17 ;
+    grid-row: 1/ 1;
+    text-align: center;
+    
+    margin-left: 2rem;
+    margin-right: .3rem;
+
+}
+
+.profissional:nth-child(3){
+    grid-column: 1/ 8;
+    grid-row: 3/ 3;
+    text-align: center;
+    
+    margin-left: 2rem;
+    margin-right: .3rem;
+
+}
+
+.profissional:nth-child(4){
+    grid-column: 9/ 17;
+    grid-row: 3/ 3;
+    text-align: center;
+
+    margin-left: 2rem;
+    margin-right: .3rem;
+
+}
+
+.profissional:nth-child(5){
+    grid-column: 1/ 8;
+    grid-row: 5/ 5;
+    text-align: center;
+    
+    margin-left: 2rem;
+    margin-right: .3rem;
+    
+}
+
+.profissional:nth-child(6){
+    grid-column: 9/ 17;
+    grid-row: 5/ 5;
+    text-align: center;
+    
+   margin-left: 2rem;
+    margin-right: .3rem;
+    
+}
+
+.sessao-profissional{
+    background-color: #ffffff;
+
+}
+
+.sessao-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sessao-header h1{
+    font-family: "baloo da 2";
+    font-size: 3rem;
+    color: #006900;
+    border-bottom: solid 3px #0dc70d;
+    margin-bottom: 0rem;
+
+}
+
+.profissional-header{
+    display: flex;
+    align-items: center;
+    color: #006900
+
+}
+
+.profissional-header i{
+    font-size: 2rem;
+    margin-left: 2rem;
+    margin-top: 3rem;
+
+
+}
+
+.profissional-header h3{
+    font-family: "Josefin+Slab";
+    font-size: 1.5rem;
+    padding-left: 2rem ;
+    margin-top: 3rem;
+
+}
+
+.profissional-text{
+    font-family: "baloo da 2";
+    margin-top: -1rem;
+    font-size: 1.3rem;
+    
+}
+
+.pessoal {                                                                                    /* sessão da trajetória pessoal  */
+    display: flex; 
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+
+  }
+
+  .sessao-pessoal{                                                                         
+    background-color: #ffffff;
+
+  }
+  
+  .card {
+    width: 28rem;
+    height: 27rem;
+    position: relative;
+
+  }
+  
+  .card-img-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #11380d;
+    border-radius: 0.5rem;
+
+  }
+  
+  .card-img-wrapper img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    opacity: 0.;
+    transition: opacity 0.3s;
+
+  }
+  
+  .card:hover .card-img-wrapper img {
+    opacity: 0.3;
+
+  }
+  
+  .card-info {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    padding: 2rem;
+    text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, 0.6);
+    transition: all 0.3s;
+
+  }
+  
+  .card-info h2 {
+    font-family: "baloo da 2";
+    font-size: 2rem;
+    font-weight: 500;
+    color: #eee;
+
+  }
+  
+  .card-info h3 {
+    font-family: "Josefin+Slab";
+    font-weight: bolder;
+    color: #0dc70d;
+    margin-bottom: 1.5rem;
+
+  }
+  
+  .card-info p {                                                                       /* texto dos cards da sessão pessoal */
+    font-family: "baloo da 2";
+    color: #eee;
+    font-weight: 400;
+    width: 80%;
+    margin-bottom: 2rem;
+    text-align: justify;                                                              
+
+  }
+  
+  
+  .card-info button {
+    width: 8rem;
+    height: 2.5rem;
+
+  }
+  
+  .card:hover .card-info {
+    bottom: 2rem;
+    opacity: 1;
+    visibility: visible;
+
+  }
+
+  footer{                                                                                    /* raodapé do site */
+    width: 100%;
+    height: 7rem;
+    background-color: #11380d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16.4rem;
+  }
+  
+  .footer-content{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer-content p{
+    font-family: var(--font-secundary);
+    color: #ffffff;
+    font-size: 1.2rem;
+  }
+  
+  .social-list a{
+    margin: 0 2rem;
+    color: #ffffff;
+    font-size: 1.3rem;
+  }
+  
+  .social-list ul {
+    display: flex;
+  }
+
+  .social-list i:hover{
+    color: #0dc70d; 
+
+  }
+
+  #link-topo{                                                                              /* botão de retornar para o começo */
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem;
+    width: 3rem;
+    height: 3rem;
+    background: #006900;
+    background: -webkit-linear-gradient(to right, #0dc70d, #006900);
+    background: linear-gradient(to left, #0dc70d, #006900);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: .3rem;
+    box-shadow:  0 0.1rem 0.6rem #00000009;
+  }
+
+
